@@ -1,0 +1,180 @@
+<html><head>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+      :root {
+        --primary-50: #eef7ff;
+        --primary-100: #d9ecff;
+        --primary-200: #bce0ff;
+        --primary-300: #8ed0ff;
+        --primary-400: #5cb8ff;
+        --primary-500: #3b9eff;
+        --primary-600: #258aff;
+        --primary-700: #137fec;
+        --primary-800: #1168c4;
+        --primary-900: #14559b;
+        --primary-950: #0d345f;
+        --secondary-50: #f0fdf4;
+        --secondary-100: #dcfce7;
+        --secondary-200: #bbf7d0;
+        --secondary-300: #86efac;
+        --secondary-400: #4ade80;
+        --secondary-500: #22c55e;
+        --secondary-600: #16a34a;
+        --secondary-700: #15803d;
+        --secondary-800: #166534;
+        --secondary-900: #14532d;
+        --secondary-950: #052e16;
+      }
+      @keyframes zoom-in-out {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+      @keyframes slide-up-down {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+      }
+      @keyframes pulse-light {
+        0%, 100% { box-shadow: 0 0 15px rgba(34, 197, 94, 0.3); }
+        50% { box-shadow: 0 0 25px rgba(34, 197, 94, 0.6); }
+      }
+      @keyframes rotate-slow {
+        
+      }
+      .animate-zoom {
+        animation: zoom-in-out 4s ease-in-out infinite;
+      }
+      .animate-slide {
+         animation: slide-up-down 3s ease-in-out infinite;
+      }
+      .animate-pulse-light {
+        animation: pulse-light 3s ease-in-out infinite;
+      }
+      .animate-rotate-slow {
+        animation: rotate-slow 20s linear infinite;
+      }
+
+          .material-symbols-outlined {
+  font-size: 36px; /* makes it bigger */
+  color: #16A34A;   /* changes color */
+}
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-10 py-4 shadow-sm bg-white">
+<div class="flex items-center gap-10">
+<div class="flex items-center gap-3 text-secondary-700">
+<span class="material-symbols-outlined text-4xl">grass</span>
+<h1 class="text-2xl font-bold">AgriGuru</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8 text-gray-600 font-medium">
+<a class="text-[var(--text-primary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="{{ url_for('homepage') }}l">Home</a>
+<a class="hover:text-secondary-700 transition-colors" href="#">Services</a>
+<a class="hover:text-secondary-700 transition-colors" href="#">About Us</a>
+<a class="hover:text-secondary-700 transition-colors" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="form-input w-full rounded-full border-gray-300 bg-gray-100 pl-10 pr-4 py-2 text-sm focus:bg-white focus:ring-2 focus:ring-secondary-500 focus:border-transparent transition-colors" placeholder="Search..." type="search"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+<a href="{{ url_for('profile') }}">
+  <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 cursor-pointer"
+       style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDva2HSBUhw0Y78sjS_yJvEcFow5_6V2PazU5K6nRksOxN3ume-dI-e_xfkfwhhPE61fMS7cdwzzSixC-udG3Rh4Nc76kjRzt1JtQYlQcPT5DO2X4aXyQKY_w6cXDIoXai_lQjEL7O1bgAm78I7RuSRPQ6nCO6ueBRcoRZzm732ms94oZ4ckHJmrkdQwUHOXtTy2YeuSmg5DAtl78DlLaB0rTuZugfuRAqrfimr7xsYlLqatpOmGAmYVDQjE7rLv2yvLOfyGkt5dSw");'>
+  </div>
+</a>
+</header>
+<main class="flex-1 px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-7xl mx-auto">
+<div class="mb-8">
+<h1 class="text-4xl font-bold text-gray-800">Welcome to AgriGuru</h1>
+<p class="text-lg text-gray-500 mt-2">Your all-in-one solution for smart farming.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<a class="group block rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300" href="{{ url_for('home') }}">
+<div class="flex flex-col h-full">
+<div class="relative mb-4">
+<img alt="Stylized illustration of a plant with a magnifying glass over a leaf, indicating disease detection" class="w-full h-40 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300 animate-zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4mYqOD1XUYo_yPl4kUg_XMiNLPHFLdIRhH1gaGxgDu886YSG3ZiTzbEKkXOmRHvOM0v45lo3JSia3WxZ2yYcL9ZmNcg-ZtkmSROa8n1clLPT0MKqChRka5COpuaiMgKVY7Qxu1TZdH-1ah03w_I9yCIj_q1UVDcXRE5O_FICjuT1_ZbMF7h7g9h0DtzDPlHubs2wGLlHCrDsV3TFEVpxIgeJ_tFACt9XysZ7Tn_hvMnzIabbwPbt-myIAHXvJxsaDhlYpFJdhvnA"/>
+<div class="absolute inset-0 bg-black bg-opacity-10 rounded-lg"></div>
+<div class="absolute bottom-2 left-2 flex items-center gap-2 text-white bg-secondary-600 px-3 py-1 rounded-full text-sm font-semibold">
+<span class="material-symbols-outlined text-base">bug_report</span>
+<span>Disease Detection</span>
+</div>
+</div>
+<h3 class="text-lg font-semibold text-gray-800">Identify Crop Diseases</h3>
+<p class="text-sm text-gray-500 mt-1 flex-grow">Use image analysis to detect diseases early.</p>
+<span class="mt-4 text-sm font-medium text-secondary-600 group-hover:text-secondary-700 flex items-center gap-1">
+                    Analyze Now <span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
+</span>
+</div>
+</a>
+<a class="group block rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300" href="{{ url_for('prices') }}">
+<div class="flex flex-col h-full">
+<div class="relative mb-4">
+<img alt="Animated graphic of a market stall with price tags and graphs" class="w-full h-40 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300 animate-zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMlL6YOnB9JLBY6sZuDWXgw9BA47jLuh_lziM25zOrsGjrK70D5id1ezpgPK2FCdHsbIo4h-NYKN6WwT_e4bEs5YP5ypaEqZxTHWVFv1P_bEfAXV2T1v7CAa9hdR_x1nOoD_h1gFlypmU9IYTesEb2SvwULszEhUC9mM59t72Wi-Ut_OMYn8qfM20nObyOtJAC-zfGkaF_xc3RFWrbAX3fPMARnzisjhW1_NmA02OI559GDiFOPh1h8Gpu64225NSaOdO00Y_IBYc"/>
+<div class="absolute bottom-2 left-2 flex items-center gap-2 text-white bg-secondary-600 px-3 py-1 rounded-full text-sm font-semibold">
+<span class="material-symbols-outlined text-base">monitoring</span>
+<span>Market Prices</span>
+</div>
+</div>
+<h3 class="text-lg font-semibold text-gray-800">Check Market Prices</h3>
+<p class="text-sm text-gray-500 mt-1 flex-grow">Get the latest mandi prices for your crops.</p>
+<span class="mt-4 text-sm font-medium text-secondary-600 group-hover:text-secondary-700 flex items-center gap-1">
+                    View Prices <span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
+</span>
+</div>
+</a>
+<a class="group block rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300" href="{{ url_for('weather') }}">
+<div class="flex flex-col h-full">
+<div class="relative mb-4">
+<img alt="Stylized illustration of weather icons like sun, clouds, and rain" class="w-full h-40 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300 animate-zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsfQrPxYiXpbvgkA0XYiL_nKFzl6ag0CJXvQZOmxNkn8Kd-z1PWLZ6pvAEkl02oegdFK96bX2aww-WsYcVXMNlVEjtVtb2Y0uhQt3kpY8wrsGpd0HpqVYg2XtejgLlGonoXHvklZMgDcbulwkBqAQCMqq9tKcXnGLHjRyPE6WRywjbH3RXo8SztA_YODzNtHYaDh82HoXNt5XBblrqmtJNHvJ-xHle2PHXhW7YLNRbqQJjZLd1fmevHOF-_iI77OIllz1O2hjIiJY"/>
+<div class="absolute bottom-2 left-2 flex items-center gap-2 text-white bg-secondary-600 px-3 py-1 rounded-full text-sm font-semibold">
+<span class="material-symbols-outlined text-base">cloudy</span>
+<span>Weather Info</span>
+</div>
+</div>
+<h3 class="text-lg font-semibold text-gray-800">Get Weather Updates</h3>
+<p class="text-sm text-gray-500 mt-1 flex-grow">Access real-time weather and alerts.</p>
+<span class="mt-4 text-sm font-medium text-secondary-600 group-hover:text-secondary-700 flex items-center gap-1">
+                    Check Forecast <span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
+</span>
+</div>
+</a>
+<a class="group block rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300" href="{{ url_for('croprecommendation') }}">
+<div class="flex flex-col h-full">
+<div class="relative mb-4">
+<img alt="Vibrant illustration of different crops with a recommendation icon" class="w-full h-40 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300 animate-zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrLp_nIjxiJtb-0SeerNSDAy3bTVpAtyr7ukF_Vz_MHM_G1TNzaSiDloKyNu-6MN9KG3PEWZX_nLF9FFPdN0-MkXlUbCaL-L8fW6CeYKAm8aELzm8UM_EsPzjWbii_Z8bXd0x4-7hbJ534ghJTjkVh0D4u8b3BX0YCzGl3eye0j7UOgSUNQkfDwtOGILbVXSgUx4GGmTlUe4zvje3T2EH1EiC2oYccGsmC0vA0GynuPyxVr7lMFwCnGG_f-ruQHrox286SH9ydQ8g"/>
+<div class="absolute inset-0 bg-black bg-opacity-10 rounded-lg"></div>
+<div class="absolute bottom-2 left-2 flex items-center gap-2 text-white bg-secondary-600 px-3 py-1 rounded-full text-sm font-semibold">
+<span class="material-symbols-outlined text-base">recommend</span>
+<span>Crop Recommendation</span>
+</div>
+</div>
+<h3 class="text-lg font-semibold text-gray-800">Find the Best Crops</h3>
+<p class="text-sm text-gray-500 mt-1 flex-grow">Discover suitable crops for your land.</p>
+<span class="mt-4 text-sm font-medium text-secondary-600 group-hover:text-secondary-700 flex items-center gap-1">
+                    Get Recommendations <span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
+</span>
+</div>
+</a>
+</div>
+</div>
+</main>
+</div>
+<button class="fixed bottom-8 right-8 z-50 flex items-center justify-center h-16 w-16 rounded-full bg-secondary-600 text-white shadow-lg hover:bg-secondary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-500 transition-all duration-300 transform hover:scale-110">
+<span class="material-symbols-outlined text-3xl">chat</span>
+</button>
+</div>
+</body></html>

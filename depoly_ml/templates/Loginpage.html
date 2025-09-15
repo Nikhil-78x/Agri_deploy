@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<title>AgriGuru Login</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-green: #22c55e;
+        --light-gray: #f7fafc;
+        --medium-gray: #e2e8f0;
+        --dark-gray: #4a5568;
+        --text-color: #1a202c;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .material-symbols-outlined {
+  font-size: 36px; 
+  color: #16A34A;   
+}
+    </style>
+</head>
+<body class="bg-[var(--light-gray)]">
+<div class="flex min-h-screen">
+<div class="flex flex-1 flex-col justify-center items-center px-6 lg:px-8">
+<div class="w-full max-w-md space-y-8">
+<div>
+<div class="flex justify-center items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-4xl text-primary-600">grass</span>
+<h1 class="text-3xl font-bold text-gray-900">AgriGuru</h1>
+</div>
+<h2 class="text-center text-2xl font-bold leading-9 tracking-tight text-[var(--text-color)]">Log in to your account</h2>
+<p class="mt-2 text-center text-sm text-gray-500">Welcome back! Please enter your details.</p>
+</div>
+<div class="bg-white p-8 shadow-lg rounded-xl">
+<form action="#" class="space-y-6" method="POST">
+<div>
+<label class="block text-sm font-medium leading-6 text-gray-900" for="mobile">Mobile Number</label>
+<div class="mt-2 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"> phone_iphone </span>
+<input autocomplete="tel" class="pl-10 form-input block w-full rounded-md border-0 py-3 text-[var(--text-color)] shadow-sm ring-1 ring-inset ring-[var(--medium-gray)] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[var(--primary-green)] sm:text-sm sm:leading-6" id="mobile" name="mobile" placeholder="   Enter your mobile number" required="" type="tel"/>
+</div>
+</div>
+<div>
+<button class="flex w-full justify-center rounded-md bg-[var(--primary-green)] px-3 py-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-green)]" type="submit">
+                  Continue
+                </button>
+</div>
+</form>
+<p class="mt-6 text-center text-xs text-[var(--dark-gray)]">
+              By continuing, you agree to our
+              <a class="font-semibold text-[var(--primary-green)] hover:text-green-500" href="#">Terms of Service</a>
+              and
+              <a class="font-semibold text-[var(--primary-green)] hover:text-green-500" href="#">Privacy Policy</a>.
+            </p>
+</div>
+</div>
+</div>
+<div class="hidden lg:block relative w-0 flex-1">
+<img alt="A beautiful farm landscape" class="absolute inset-0 h-full w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAruBeDdxEHLDPKXl9xsdodBmDu4zR9OyX_Os4SnFK1m0Hi74-UJuUTIfsMaeCACgBC3LOzWEv-dR883QDSNW0rHKixI6HpF2IWGBiC_aIKOJxyrETvyJ7XB0i6iUsBaU1AgUB-2jKkkanCzt-8Q4Ds_ypCUDzRwhI-qqdMoJ-ZOMebwZBPTkKzqocPZSOgqNPNfon9VXfzxnSN6p5x2NsuaMW4wK9ITx40bxGGRoqLFNN1eLCjjfI3XjdlkA_DtFxY5BF3a7rspxM"/>
+<div class="absolute inset-0 bg-green-900 bg-opacity-60"></div>
+<div class="absolute inset-0 flex items-center justify-center p-12 text-white">
+<div class="text-center">
+<h2 class="text-4xl font-bold">Your trusted partner in agriculture</h2>
+<p class="mt-4 text-lg">Harnessing technology to empower farmers everywhere.</p>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

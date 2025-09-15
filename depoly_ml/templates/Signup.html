@@ -1,0 +1,69 @@
+<html><head>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-500: #22c55e;
+        --primary-600: #16a34a;
+        --primary-700: #15803d;
+        --neutral-100: #f5f5f5;
+        --neutral-200: #e5e5e5;
+        --neutral-400: #a3a3a3;
+        --neutral-600: #525252;
+        --neutral-800: #262626;
+        --neutral-900: #171717;
+      }
+      .bg-primary-500 { background-color: var(--primary-500); }
+      .bg-primary-600 { background-color: var(--primary-600); }
+      .text-primary-600 { color: var(--primary-600); }
+      .border-primary-500 { border-color: var(--primary-500); }
+      .hover\:bg-primary-600:hover { background-color: var(--primary-600); }
+    </style>
+</head>
+<body class="bg-[var(--neutral-100)]" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--neutral-200)] px-10 py-4 shadow-sm">
+<div class="flex items-center gap-3 text-[var(--neutral-800)]">
+<span class="material-symbols-outlined text-4xl text-primary-600">grass</span>
+<h2 class="text-[var(--neutral-900)] text-2xl font-bold leading-tight tracking-[-0.015em]">AgriGuru</h2>
+</div>
+<div class="flex flex-1 justify-end gap-6">
+<a href="{{ url_for('loginpage') }}" class="flex min-w-[96px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-11 px-5 bg-white text-[var(--text-primary)] text-base font-bold leading-normal tracking-[0.015em] border border-gray-300 hover:bg-gray-100 transition-colors">
+  <span class="truncate">Login</span>
+</a>
+</div>
+</header>
+<div class="flex flex-1 justify-center items-center py-10 bg-gray-50">
+<div class="layout-content-container flex flex-col w-full max-w-md p-10 bg-white rounded-xl shadow-lg border border-gray-200">
+<div class="text-center mb-8">
+<span class="material-symbols-outlined text-6xl text-primary-500 mx-auto">person_add</span>
+<h2 class="text-[var(--neutral-900)] text-3xl font-bold leading-tight mt-4">Create your account</h2>
+<p class="text-[var(--neutral-600)] mt-2">Enter your mobile number to get started.</p>
+</div>
+<div class="flex flex-col gap-6">
+<div class="relative">
+<label class="sr-only" for="mobile">Mobile Number</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">phone_iphone</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-500 border border-gray-300 bg-white h-14 placeholder:text-gray-400 pl-12 pr-4 text-base font-normal leading-normal" id="mobile" placeholder="Enter your mobile number" value=""/>
+</div>
+</div>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary-500 text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary-600 transition-colors shadow-sm">
+<span class="truncate">Sign Up</span>
+</button>
+</div>
+<p class="text-center text-sm text-gray-500 mt-8">
+              Already have an account?
+              <a class="font-medium text-primary-600 hover:underline" href="{{ url_for('loginpage') }}">Login</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body></html>

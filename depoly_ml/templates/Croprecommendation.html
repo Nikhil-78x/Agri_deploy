@@ -1,0 +1,254 @@
+<html>
+<head>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<title>AgriGuru - Crop Recommendation</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+:root {
+  --primary-color: #11d411;
+  --secondary-color: #f0f4f0;
+  --text-primary: #111811;
+  --text-secondary: #618961;
+}
+.material-symbols-outlined {
+  font-size: 36px;
+  color: #16A34A;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+
+<div class="relative flex size-full min-h-screen flex-col bg-white overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<header class="flex items-center justify-between border-b border-gray-200 px-10 py-4 shadow-sm">
+  <div class="flex items-center gap-10">
+    <div class="flex items-center gap-3 text-green-700">
+      <span class="material-symbols-outlined">grass</span>
+      <h1 class="text-2xl font-bold text-gray-800">AgriGuru</h1>
+    </div>
+    <nav class="flex items-center gap-6">
+      <a href="{{ url_for('dashboard') }}" class="text-base font-medium hover:text-[var(--primary-color)]">Dashboard</a>
+      <a href="{{ url_for('prices') }}" class="text-base font-medium hover:text-[var(--primary-color)]">Market Prices</a>
+      <a href="{{ url_for('weather') }}" class="text-base font-medium hover:text-[var(--primary-color)]">Weather</a>
+      <a href="{{ url_for('croprecommendation') }}" class="text-base font-medium hover:text-[var(--primary-color)]">Crop Recommendation</a>
+      <a href="{{ url_for('home') }}" class="text-base font-medium hover:text-[var(--primary-color)]">Disease Detection</a>
+    </nav>
+  </div>
+  <div class="flex flex-1 justify-end items-center gap-4">
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+<a href="{{ url_for('profile') }}">
+  <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 cursor-pointer"
+       style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDva2HSBUhw0Y78sjS_yJvEcFow5_6V2PazU5K6nRksOxN3ume-dI-e_xfkfwhhPE61fMS7cdwzzSixC-udG3Rh4Nc76kjRzt1JtQYlQcPT5DO2X4aXyQKY_w6cXDIoXai_lQjEL7O1bgAm78I7RuSRPQ6nCO6ueBRcoRZzm732ms94oZ4ckHJmrkdQwUHOXtTy2YeuSmg5DAtl78DlLaB0rTuZugfuRAqrfimr7xsYlLqatpOmGAmYVDQjE7rLv2yvLOfyGkt5dSw");'>
+  </div>
+</a>
+</header>
+
+<main class="flex-1 bg-gray-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="max-w-4xl mx-auto">
+
+  <!-- Title -->
+  <div class="text-center mb-10">
+    <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl">Personalized Crop Recommendations</h1>
+    <p class="mt-4 text-lg text-gray-600">Choose your state and soil type to get tailored suggestions for your farm.</p>
+  </div>
+
+  <!-- Form -->
+  <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-end">
+
+      <!-- Location Dropdown -->
+      <label class="flex flex-col gap-2">
+        <p class="text-gray-700 font-medium">Location</p>
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">location_on</span>
+          <select id="state" class="form-select w-full rounded-lg border-gray-300 bg-white py-3 pl-10 pr-10 text-gray-800 focus:border-green-500 focus:ring-green-500">
+            <option disabled selected value="">Select State</option>
+            <option value="punjab">Punjab</option>
+            <option value="tamilnadu">Tamil Nadu</option>
+            <option value="maharashtra">Maharashtra</option>
+            <option value="rajasthan">Rajasthan</option>
+            <option value="bihar">Bihar</option>
+          </select>
+        </div>
+      </label>
+
+      <!-- Soil Dropdown -->
+      <label class="flex flex-col gap-2">
+        <p class="text-gray-700 font-medium">Soil Type</p>
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">grass</span>
+          <select id="soil" class="form-select w-full rounded-lg border-gray-300 bg-white py-3 pl-10 pr-10 text-gray-800 focus:border-green-500 focus:ring-green-500">
+            <option disabled selected value="">Select soil type</option>
+            <option value="sandy">Sandy</option>
+            <option value="clay">Clay</option>
+            <option value="loam">Loam</option>
+            <option value="silt">Silt</option>
+          </select>
+        </div>
+      </label>
+    </div>
+
+    <div class="mt-8 flex justify-center">
+      <button onclick="recommendCrops()" class="flex items-center gap-2 rounded-full h-12 px-8 bg-green-600 text-white font-bold shadow-md hover:bg-green-700 transition">
+        <span>Get Recommendations</span>
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Recommendations -->
+  <div id="recommendations" class="mt-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Top Crop Suggestions</h2>
+    <div id="cropCards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+  </div>
+
+</div>
+</div>
+</main>
+</div>
+
+<script>
+// Crop dataset
+
+  const cropData = {
+  punjab: {
+    sandy: [
+      { name: "Maize", img: "https://img1.exportersindia.com/product_images/bc-full/2023/2/8565920/fresh-maize-1677304786-6777906.jpeg" },
+      { name: "Barley", img: "https://cdn.pixabay.com/photo/2018/06/23/08/34/wheat-3492292_640.jpg" }
+    ],
+    clay: [
+      { name: "Rice", img: "https://wallpaperaccess.com/full/1463517.jpg" },
+      { name: "Sugarcane", img: "https://www.saveur.com/uploads/2022/03/05/sugarcane-linda-xiao.jpg?auto=webp&width=2000&height=1333" }
+    ],
+    loam: [
+      { name: "Wheat", img: "https://img.freepik.com/premium-psd/wheat-grains-isolated-white-background_1264610-27609.jpg?w=2000" },
+      { name: "Potato", img: "https://ripeme.com/wp-content/uploads/Ripe-Organic-Potatoes-1-1.jpg" }
+    ],
+    silt: [
+      { name: "Pulses", img: "https://quadram.ac.uk/wp-content/uploads/2022/02/QI_Twitter_pulses.png" },
+      { name: "Vegetables", img: "https://www.allhealthsite.com/wp-content/uploads/2016/06/green-vegetables-1.jpg" }
+    ]
+  },
+
+  tamilnadu: {
+    sandy: [
+      { name: "Groundnut", img: "https://img.freepik.com/premium-photo/fresh-groundnuts-isolated-white-background_787273-25501.jpg?w=2000" },
+      { name: "Coconut", img: "http://cdn.shopify.com/s/files/1/0358/7879/7448/products/coconut_1200x1200.png?v=1602297120" }
+    ],
+    clay: [
+      { name: "Rice", img: "https://wallpaperaccess.com/full/1463517.jpg" },
+      { name: "Banana", img: "https://img.lovepik.com/element/40030/7872.png_1200.png" }
+    ],
+    loam: [
+      { name: "Sugarcane", img: "https://www.saveur.com/uploads/2022/03/05/sugarcane-linda-xiao.jpg?auto=webp&width=2000&height=1333" },
+      { name: "Cotton", img: "http://4.bp.blogspot.com/-w6sq-Ju9Bdg/T31SwyInNEI/AAAAAAAAAK0/IeWreUAXE3I/s1600/Cotton-Ball1.jpg" }
+    ],
+    silt: [
+      { name: "Turmeric", img: "https://static.vecteezy.com/system/resources/previews/016/758/993/non_2x/turmeric-powder-indian-spice-free-photo.jpg" },
+      { name: "Pulses", img: "https://quadram.ac.uk/wp-content/uploads/2022/02/QI_Twitter_pulses.png" }
+    ]
+  },
+
+  maharashtra: {
+    sandy: [
+      { name: "Groundnut", img: "https://img.freepik.com/premium-photo/fresh-groundnuts-isolated-white-background_787273-25501.jpg?w=2000" },
+      { name: "Bajra (Pearl Millet)", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTL5ERtUJ8X_AB5yT4vINfZbnro8Rl-TJZoNyuGwF6JdHmzLbdV_cGvlKHvsPiseEUgdXVN6qlQ_NbZSvnlbuWZEwaNgfzwomfdVBsmtEvLlSzPR27tef6_IFMEA1Qho5hXi0m2msGFgOGd85SjviZMYUJmyAj7Y8oihO33BUteQtuHnyZo7vFIC2a/s960/bajra.jpg" }
+    ],
+    clay: [
+      { name: "Cotton", img: "http://4.bp.blogspot.com/-w6sq-Ju9Bdg/T31SwyInNEI/AAAAAAAAAK0/IeWreUAXE3I/s1600/Cotton-Ball1.jpg" },
+      { name: "Soybean", img: "https://tse4.mm.bing.net/th/id/OIP.kJ4b6MtnJF5n2VlcTuE3-QHaEL?pid=Api&P=0&h=180" }
+    ],
+    loam: [
+      { name: "Tur (Pigeon Pea)", img: "https://gardenerspath.com/wp-content/uploads/2022/02/How-to-Grow-Pigeon-Peas-Feature.jpg" },
+      { name: "Sugarcane", img: "https://www.saveur.com/uploads/2022/03/05/sugarcane-linda-xiao.jpg?auto=webp&width=2000&height=1333" }
+    ],
+    silt: [
+      { name: "Vegetables", img: "https://www.allhealthsite.com/wp-content/uploads/2016/06/green-vegetables-1.jpg" },
+      { name: "Pulses", img: "https://quadram.ac.uk/wp-content/uploads/2022/02/QI_Twitter_pulses.png" }
+    ]
+  },
+
+  rajasthan: {
+    sandy: [
+      { name: "Bajra (Pearl Millet)", img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTL5ERtUJ8X_AB5yT4vINfZbnro8Rl-TJZoNyuGwF6JdHmzLbdV_cGvlKHvsPiseEUgdXVN6qlQ_NbZSvnlbuWZEwaNgfzwomfdVBsmtEvLlSzPR27tef6_IFMEA1Qho5hXi0m2msGFgOGd85SjviZMYUJmyAj7Y8oihO33BUteQtuHnyZo7vFIC2a/s960/bajra.jpg" },
+      { name: "Groundnut", img: "https://img.freepik.com/premium-photo/fresh-groundnuts-isolated-white-background_787273-25501.jpg?w=2000" }
+    ],
+    clay: [
+      { name: "Wheat", img: "https://img.freepik.com/premium-photo/wheat-field-ears-golden-wheat-closeup-harvest-concept_303714-1252.jpg" },
+      { name: "Barley", img: "https://cdn.pixabay.com/photo/2018/06/23/08/34/wheat-3492292_640.jpg" }
+    ],
+    loam: [
+      { name: "Mustard", img: "https://www.gardeningknowhow.com/wp-content/uploads/2022/07/harvest-mustard-seeds-1024x768.jpg" },
+      { name: "Wheat", img: "https://img.freepik.com/premium-photo/wheat-field-ears-golden-wheat-closeup-harvest-concept_303714-1252.jpg" }
+    ],
+    silt: [
+      { name: "Pulses", img: "https://quadram.ac.uk/wp-content/uploads/2022/02/QI_Twitter_pulses.png" },
+      { name: "Maize", img: "https://img1.exportersindia.com/product_images/bc-full/2023/2/8565920/fresh-maize-1677304786-6777906.jpeg" }
+    ]
+  },
+
+  bihar: {
+    sandy: [
+      { name: "Maize", img: "https://img1.exportersindia.com/product_images/bc-full/2023/2/8565920/fresh-maize-1677304786-6777906.jpeg" },
+      { name: "Groundnut", img: "https://img.freepik.com/premium-photo/fresh-groundnuts-isolated-white-background_787273-25501.jpg?w=2000" }
+    ],
+    clay: [
+      { name: "Rice", img: "https://wallpaperaccess.com/full/1463517.jpg" },
+      { name: "Sugarcane", img: "https://www.saveur.com/uploads/2022/03/05/sugarcane-linda-xiao.jpg?auto=webp&width=2000&height=1333" }
+    ],
+    loam: [
+      { name: "Wheat", img: "https://img.freepik.com/premium-photo/wheat-field-ears-golden-wheat-closeup-harvest-concept_303714-1252.jpg" },
+      { name: "Pulses", img: "https://quadram.ac.uk/wp-content/uploads/2022/02/QI_Twitter_pulses.png" }
+    ],
+    silt: [
+      { name: "Mustard", img: "https://www.gardeningknowhow.com/wp-content/uploads/2022/07/harvest-mustard-seeds-1024x768.jpg" },
+      { name: "Vegetables", img: "https://www.allhealthsite.com/wp-content/uploads/2016/06/green-vegetables-1.jpg" }
+    ]
+  }
+};
+
+
+// Recommend crops
+function recommendCrops() {
+  const state = document.getElementById("state").value;
+  const soil = document.getElementById("soil").value;
+  const container = document.getElementById("cropCards");
+  container.innerHTML = "";
+
+  if (!state || !soil) {
+    container.innerHTML = "<p class='text-center text-red-600 font-semibold'>⚠️ Please select both state and soil type.</p>";
+    return;
+  }
+
+  const crops = cropData[state]?.[soil];
+  if (!crops) {
+    container.innerHTML = `<p class="text-center text-orange-600 font-semibold">❌ No crop data available for ${soil} soil in ${state}.</p>`;
+    return;
+  }
+
+  crops.forEach(crop => {
+    container.innerHTML += `
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl border border-gray-200 transition">
+        <div class="h-40 bg-cover bg-center" style="background-image: url('${crop.img}')"></div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800">${crop.name}</h3>
+          <p class="text-gray-600 mt-2 text-sm">Best suited for ${soil} soil in ${state.charAt(0).toUpperCase() + state.slice(1)}.</p>
+        </div>
+      </div>
+    `;
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<html><head>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Detection</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #11d411;
+        --secondary-color: #f0f4f0;
+        --text-primary: #111811;
+        --text-secondary: #618961;
+      }
+
+         .material-symbols-outlined {
+  font-size: 36px; /* makes it bigger */
+  color: #16A34A;   /* changes color */
+}
+    </style>
+</head>
+    <body class="bg-gray-50">
+<div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Lexend, "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f4f0] px-10 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[var(--text-primary)]">
+<span class="material-symbols-outlined text-4xl text-primary-600">grass</span>
+<h2 class="text-[var(--text-primary)] text-xl font-bold leading-tight tracking-[-0.015em]">AgriGuru</h2>
+</div>
+<nav class="flex items-center gap-6">
+<a class="text-[var(--text-primary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="{{ url_for('dashboard') }}">Dashboard</a>
+<a class="text-[var(--text-primary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="{{ url_for('prices') }}">Market Prices</a>
+<a class="text-[var(--text-primary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="{{ url_for('weather') }}">Weather</a>
+<a class="text-[var(--text-primary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="{{ url_for('croprecommendation') }}">Crop Recommendation</a>
+<a class="text-[var(--text-primary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="">Disease Detection</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+<a href="{{url_for('profile')}}">
+  <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 cursor-pointer"
+       style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDva2HSBUhw0Y78sjS_yJvEcFow5_6V2PazU5K6nRksOxN3ume-dI-e_xfkfwhhPE61fMS7cdwzzSixC-udG3Rh4Nc76kjRzt1JtQYlQcPT5DO2X4aXyQKY_w6cXDIoXai_lQjEL7O1bgAm78I7RuSRPQ6nCO6ueBRcoRZzm732ms94oZ4ckHJmrkdQwUHOXtTy2YeuSmg5DAtl78DlLaB0rTuZugfuRAqrfimr7xsYlLqatpOmGAmYVDQjE7rLv2yvLOfyGkt5dSw");'>
+  </div>
+</a>
+</header>
+<main class="flex flex-1 justify-center py-12 px-4 sm:px-6 lg:px-8">
+<div class="w-full max-w-4xl space-y-10">
+<div class="text-center">
+<h1 class="text-4xl font-bold tracking-tight text-[var(--text-primary)] sm:text-5xl">Detect Crop Diseases</h1>
+<p class="mt-4 text-lg text-[var(--text-secondary)]">Upload an image or describe symptoms to get an instant diagnosis and treatment plan.</p>
+</div>
+
+
+
+<!-- Results Section (side by side) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+  
+  <!-- Left: Detection Result -->
+  <div>
+
+<form class="p-3 text-center" action="/" method="post" enctype="multipart/form-data">
+  <!-- Upload Box -->
+  <div id="upload-box" class="flex flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-green-400 p-8 text-center hover:border-green-600 transition-colors cursor-pointer relative">
+    
+    <!-- Default upload UI -->
+    <div id="upload-content">
+      <span class="material-symbols-outlined text-6xl text-green-500">cloud_upload</span>
+      <p class="text-lg font-semibold text-[var(--text-primary)]">Upload Image</p>
+      <p class="text-sm text-[var(--text-secondary)]">Drag and drop or click to browse.</p>
+      <label class="mt-2 flex items-center gap-2 rounded-full h-10 px-6 bg-green-500 text-white text-sm font-bold tracking-wide hover:bg-green-600 transition-colors cursor-pointer">
+        <span class="material-symbols-outlined">add_photo_alternate</span>
+        <span>Browse</span>
+        <input type="file" name="imagefile" id="imagefile" class="hidden" accept="image/*" onchange="previewImage(event)">
+      </label>
+    </div>
+
+    <!-- Preview image (hidden initially) -->
+    <img id="preview" class="hidden max-h-64 rounded-lg shadow-md" alt="Uploaded Preview" />
+  </div>
+
+  <!-- Symptoms Box -->
+  <div class="mt-6 text-left">
+    <label for="symptoms" class="block mb-2 font-semibold text-[var(--text-primary)]">Describe Symptoms</label>
+    <textarea name="symptoms" id="symptoms" rows="3" placeholder="e.g., Yellowing leaves, brown spots, stunted growth..." 
+      class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+  </div>
+
+  <!-- Detect Button -->
+  <button type="submit" class="mt-4 flex items-center justify-center gap-2 w-full rounded-full bg-green-500 px-6 py-3 text-white font-semibold hover:bg-green-600 transition-colors">
+    <span class="material-symbols-outlined">search</span>
+    Detect Disease
+  </button>
+</form>
+
+<!-- Prediction Output -->
+{% if prediction %}
+  <p class="mt-2 flex items-center gap-2 rounded-full h-10 px-6 bg-green-500 text-black text-sm font-bold tracking-wide hover:bg-green-600 transition-colors">
+    Disease :- <strong>{{prediction}}</strong>
+  </p>
+{% endif %}
+
+<script>
+  function previewImage(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const preview = document.getElementById('preview');
+        preview.src = e.target.result;
+        preview.classList.remove('hidden');
+        document.getElementById('upload-content').classList.add('hidden');
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+</script>
+</div>
+
+
+
+
+
+
+<div>
+<h2 class="text-2xl font-bold text-[var(--text-primary)]">Common Recommended Remedies</h2>
+<div class="mt-4 space-y-4">
+<div class="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 shadow-sm transform transition-transform duration-300 hover:scale-110 cursor-pointer">
+<div class="flex items-center justify-center rounded-full bg-green-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl text-green-600">science</span>
+</div>
+<div >
+<p class="text-base font-semibold text-[var(--text-primary)] ">Fungicide Application</p>
+<p class="text-sm text-[var(--text-secondary)]">Apply a broad-spectrum fungicide to the affected plants. Ensure thorough coverage of the leaves and stems.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 shadow-sm transform transition-transform duration-300 hover:scale-110 cursor-pointer">
+<div class="flex items-center justify-center rounded-full bg-green-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl text-green-600">air</span>
+</div>
+<div>
+<p class="text-base font-semibold text-[var(--text-primary)]">Improve Ventilation</p>
+<p class="text-sm text-[var(--text-secondary)]">Improve air circulation around the plants by spacing them adequately. This helps reduce humidity.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 shadow-sm transform transition-transform duration-300 hover:scale-110 cursor-pointer">
+<div class="flex items-center justify-center rounded-full bg-green-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl text-green-600">content_cut</span>
+</div>
+<div>
+<p class="text-base font-semibold text-[var(--text-primary)]">Remove Infected Parts</p>
+<p class="text-sm text-[var(--text-secondary)]">Remove and destroy any infected plant parts to prevent the disease from spreading.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 shadow-sm transform transition-transform duration-300 hover:scale-110 cursor-pointer">
+<div class="flex items-center justify-center rounded-full bg-green-100 shrink-0 size-12">
+<span class="material-symbols-outlined text-2xl text-green-600">saved_search</span>
+</div>
+<div>
+<p class="text-base font-semibold text-[var(--text-primary)]">Regular Monitoring</p>
+<p class="text-sm text-[var(--text-secondary)]">Monitor the plants regularly for any signs of disease recurrence to prevent significant damage.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+    </body>
+</html>

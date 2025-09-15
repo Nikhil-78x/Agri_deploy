@@ -1,0 +1,175 @@
+<html><head>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+.material-symbols-outlined {
+  font-size: 36px; /* makes it bigger */
+  color: #16A34A;   /* changes color */
+}
+</style>
+
+</head>
+<body class="bg-gray-50">
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-gray-200 px-10 py-3 bg-white">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-green-700">
+<span class="material-symbols-outlined text-4xl text-primary-600">grass</span>
+<h2 class="text-gray-900 text-xl font-bold tracking-tight">AgriGuru</h2>
+</div>
+<div class="flex items-center gap-6 text-sm font-medium text-gray-600">
+<nav class="flex items-center gap-6">
+<a class="text-black text-base font-medium leading-normal hover:text-green-600 transition-colors" href="{{ url_for('dashboard') }}">Dashboard</a>
+<a class="text-black text-base font-medium leading-normal hover:text-green-600 transition-colors" href="{{ url_for('prices') }}">Market Prices</a>
+<a class="text-black text-base font-medium leading-normal hover:text-green-600 transition-colors" href="{{ url_for('weather') }}">Weather</a>
+<a class="text-black text-base font-medium leading-normal hover:text-green-600 transition-colors" href="{{ url_for('croprecommendation') }}">Crop Recommendation</a>
+<a class="text-black text-base font-medium leading-normal hover:text-green-600 transition-colors" href="{{ url_for('home') }}">Disease Detection</a>
+</nav>
+</div>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+<a href="{{ url_for('profile') }}">
+  <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 cursor-pointer"
+       style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDva2HSBUhw0Y78sjS_yJvEcFow5_6V2PazU5K6nRksOxN3ume-dI-e_xfkfwhhPE61fMS7cdwzzSixC-udG3Rh4Nc76kjRzt1JtQYlQcPT5DO2X4aXyQKY_w6cXDIoXai_lQjEL7O1bgAm78I7RuSRPQ6nCO6ueBRcoRZzm732ms94oZ4ckHJmrkdQwUHOXtTy2YeuSmg5DAtl78DlLaB0rTuZugfuRAqrfimr7xsYlLqatpOmGAmYVDQjE7rLv2yvLOfyGkt5dSw");'>
+  </div>
+</a>
+</header>
+<main class="flex-1 px-10 py-8">
+<div class="max-w-5xl mx-auto">
+<div class="flex flex-wrap justify-between items-center gap-4 mb-8">
+<h1 class="text-gray-900 text-4xl font-bold tracking-tight">Weather Forecast</h1>
+<div class="relative w-full max-w-sm">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">location_on</span>
+<input class="form-input w-full min-w-0 flex-1 resize-none overflow-hidden rounded-md text-gray-900 focus:outline-0 focus:ring-2 focus:ring-green-500 border-gray-300 bg-white h-12 placeholder:text-gray-500 pl-10 text-base font-normal" placeholder="Search for a location..." value=""/>
+</div>
+</div>
+<section class="mb-8">
+<h2 class="text-gray-800 text-2xl font-bold tracking-tight mb-4">Current Conditions</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="flex items-center gap-4 rounded-lg p-6 bg-white border border-gray-200">
+<span class="material-symbols-outlined text-4xl text-green-600">thermostat</span>
+<div>
+<p class="text-gray-600 text-sm font-medium">Temperature</p>
+<p class="text-gray-900 text-2xl font-bold">28°C</p>
+</div>
+</div>
+<div class="flex items-center gap-4 rounded-lg p-6 bg-white border border-gray-200">
+<span class="material-symbols-outlined text-4xl text-green-600">humidity_percentage</span>
+<div>
+<p class="text-gray-600 text-sm font-medium">Humidity</p>
+<p class="text-gray-900 text-2xl font-bold">65%</p>
+</div>
+</div>
+<div class="flex items-center gap-4 rounded-lg p-6 bg-white border border-gray-200">
+<span class="material-symbols-outlined text-4xl text-green-600">air</span>
+<div>
+<p class="text-gray-600 text-sm font-medium">Wind Speed</p>
+<p class="text-gray-900 text-2xl font-bold">15 km/h</p>
+</div>
+</div>
+<div class="flex items-center gap-4 rounded-lg p-6 bg-white border border-gray-200">
+<span class="material-symbols-outlined text-4xl text-green-600">grain</span>
+<div>
+<p class="text-gray-600 text-sm font-medium">Precipitation</p>
+<p class="text-gray-900 text-2xl font-bold">10%</p>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h2 class="text-gray-800 text-2xl font-bold tracking-tight mb-4">Weather Alerts</h2>
+<div class="flex items-center gap-6 rounded-lg bg-red-50 border border-red-200 p-6">
+<div class="flex-shrink-0">
+<span class="material-symbols-outlined text-5xl text-red-500">warning</span>
+</div>
+<div class="flex-1">
+<p class="text-red-700 text-sm font-semibold">Severe Weather Alert</p>
+<p class="text-gray-900 text-lg font-bold">Heavy Rainfall Expected</p>
+<p class="text-red-600 text-sm">Expect heavy rainfall in the next 24 hours. Take necessary precautions to protect your crops.</p>
+</div>
+<div class="w-48 h-32 bg-center bg-no-repeat bg-cover rounded-md flex-shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCMBtfC3KRcpJFpdpBOWNVqaWe55AVfgi_ETnVsyUVuPqAsxOf5pscttGYV-_rs-y5P5WIpBbFeitSbBfVWVsFe9t36r9orxTwgbW08RaeeGMiRuwPHMAWC_iF-q156NOZPjHbzQmTalMp8lRp4M6D0HMT8OmP2k8p8Gg1CEGfGzNhxK4wjtXmHLmtceeMaF0DsB8SIHFsELZVJBpmb5sXAmCk3upa226RXf5BmZApC7-rA_kr-pLnKUMVDAcnnzF1lNC3Q_TJRZh0");'></div>
+</div>
+</section>
+<section>
+<h2 class="text-gray-800 text-2xl font-bold tracking-tight mb-4">7-Day Forecast</h2>
+<div class="overflow-x-auto rounded-lg border border-gray-200 bg-white">
+<table class="w-full text-sm text-left text-gray-500">
+<thead class="text-xs text-gray-700 uppercase bg-gray-50">
+<tr>
+<th class="px-6 py-3" scope="col">Day</th>
+<th class="px-6 py-3" scope="col">Condition</th>
+<th class="px-6 py-3" scope="col">High</th>
+<th class="px-6 py-3" scope="col">Low</th>
+<th class="px-6 py-3" scope="col">Precipitation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white border-b">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row">Monday</th>
+<td class="px-6 py-4 flex items-center gap-2"><span class="material-symbols-outlined text-xl text-gray-500">partly_cloudy_day</span> Partly Cloudy</td>
+<td class="px-6 py-4">30°C</td>
+<td class="px-6 py-4">22°C</td>
+<td class="px-6 py-4">5%</td>
+</tr>
+<tr class="bg-white border-b">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row">Tuesday</th>
+<td class="px-6 py-4 flex items-center gap-2"><span class="material-symbols-outlined text-xl text-yellow-500">sunny</span> Sunny</td>
+<td class="px-6 py-4">32°C</td>
+<td class="px-6 py-4">24°C</td>
+<td class="px-6 py-4">0%</td>
+</tr>
+<tr class="bg-white border-b">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row">Wednesday</th>
+<td class="px-6 py-4 flex items-center gap-2"><span class="material-symbols-outlined text-xl text-gray-500">cloud</span> Cloudy</td>
+<td class="px-6 py-4">29°C</td>
+<td class="px-6 py-4">21°C</td>
+<td class="px-6 py-4">10%</td>
+</tr>
+<tr class="bg-white border-b">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row">Thursday</th>
+<td class="px-6 py-4 flex items-center gap-2"><span class="material-symbols-outlined text-xl text-blue-500">rainy</span> Rainy</td>
+<td class="px-6 py-4">27°C</td>
+<td class="px-6 py-4">20°C</td>
+<td class="px-6 py-4">60%</td>
+</tr>
+<tr class="bg-white border-b">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row">Friday</th>
+<td class="px-6 py-4 flex items-center gap-2"><span class="material-symbols-outlined text-xl text-gray-500">partly_cloudy_day</span> Partly Cloudy</td>
+<td class="px-6 py-4">28°C</td>
+<td class="px-6 py-4">22°C</td>
+<td class="px-6 py-4">20%</td>
+</tr>
+<tr class="bg-white border-b">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row">Saturday</th>
+<td class="px-6 py-4 flex items-center gap-2"><span class="material-symbols-outlined text-xl text-yellow-500">sunny</span> Sunny</td>
+<td class="px-6 py-4">31°C</td>
+<td class="px-6 py-4">23°C</td>
+<td class="px-6 py-4">5%</td>
+</tr>
+<tr class="bg-white">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" scope="row">Sunday</th>
+<td class="px-6 py-4 flex items-center gap-2"><span class="material-symbols-outlined text-xl text-gray-500">cloud</span> Cloudy</td>
+<td class="px-6 py-4">30°C</td>
+<td class="px-6 py-4">22°C</td>
+<td class="px-6 py-4">15%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+</div>
+</div>
+</body>
+</html>

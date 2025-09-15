@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>AgriGuru - Welcome</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+      --primary-color: #22c55e;
+      --secondary-color: #16a34a;
+      --text-primary: #1f2937;
+      --text-secondary: #4b5563;
+      --background-primary: #ffffff;
+      --background-secondary: #f9fafb;
+    }
+    .material-symbols-outlined {
+  font-size: 36px; /* makes it bigger */
+  color: #16A34A;   /* changes color */
+}
+
+  </style>
+</head>
+<body class="bg-[var(--background-primary)]" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-10 py-4 z-10 bg-white/80 backdrop-blur-sm fixed top-0 left-0 right-0">
+<div class="flex items-center gap-3 text-2xl font-bold text-[var(--text-primary)]">
+<span class="material-symbols-outlined text-4xl text-primary-600">grass</span>
+<h2 class="text-2xl font-bold leading-tight tracking-[-0.015em]">AgriGuru</h2>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4">
+<a href="{{ url_for('loginpage') }}" class="flex min-w-[96px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-11 px-5 bg-white text-[var(--text-primary)] text-base font-bold leading-normal tracking-[0.015em] border border-gray-300 hover:bg-gray-100 transition-colors">
+  <span class="truncate">Login</span>
+</a>
+<a href="{{ url_for('signup') }}" class="flex min-w-[96px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-11 px-5 bg-[var(--primary-color)] text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-[var(--secondary-color)] transition-colors">
+  <span class="truncate">Sign Up</span>
+</a>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<section class="relative h-screen w-full flex items-center justify-center">
+<div class="absolute inset-0 z-0">
+<img alt="Lush green fields under a clear sky" class="w-full h-full object-cover opacity-30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqWwg8hT2mvpFkRBoiYRyssu3jq1kBc3LIFeuCZddn1VUa5D3OJ9-seh6S3lR0YAvRomKM0k19bm9Ji9boIHbtgikNq8upPXx-OX6boXeMMXpURZvonKxPWfZjZRtfaF8loqbmzmbvoUQMsqdAYQyfoeo1ghIuB8eB9Hfzh2mFU5E-iU3ngJbM9d2iNxtRwxSfOQdoWMgFLHaEPIpaKh4m8IwgG8pancFJagytQMXLoUN66rQSdyjJmbMwRFrTwvlU_JWcSohr_cU"/>
+<div class="absolute inset-0 bg-white/50"></div>
+</div>
+<div class="container mx-auto px-4 z-10">
+<div class="max-w-3xl mx-auto text-center">
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900"> Welcome to <span class="text-green-600">AgriGuru</span></h1>
+<p class="mt-4 text-lg sm:text-xl text-gray-700"> Your all-in-one solution for disease detection, market prices, weather updates, and crop recommendations. Empowering farmers with the knowledge they need to succeed. </p>
+<div class="mt-8 flex flex-wrap justify-center gap-4">
+<a href="{{ url_for('dashboard') }}" class="flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-12 px-6 bg-[var(--primary-color)] text-white text-lg font-bold leading-normal tracking-[0.015em] hover:bg-[var(--secondary-color)] transition-transform duration-300 ease-in-out transform hover:scale-105">
+  <span class="truncate">Get Started</span>
+</a>
+<button class="flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-12 px-6 bg-white/80 backdrop-blur-sm text-[var(--text-primary)] text-lg font-bold leading-normal tracking-[0.015em] border border-gray-300 hover:bg-white transition-transform duration-300 ease-in-out transform hover:scale-105">
+<span class="truncate">Learn More</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-[var(--background-secondary)]/80 backdrop-blur-sm">
+<div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col items-center gap-6">
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+<a class="text-base text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-colors" href="#">About Us</a>
+<a class="text-base text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-colors" href="#">Contact</a>
+<a class="text-base text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-colors" href="#">Privacy Policy</a>
+<a class="text-base text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-colors" href="#">Terms of Service</a>
+</div>
+<p class="text-base text-gray-500">© 2024 AgriGuru. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+</body></html>

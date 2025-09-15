@@ -1,0 +1,158 @@
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>          .material-symbols-outlined {
+  font-size: 36px;
+  color: #16A34A; 
+}</style>
+</head>
+<body class="bg-gray-50">
+<div class="relative flex size-full min-h-screen flex-col bg-white group/design-root" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex h-full w-full">
+<aside class="flex h-screen w-64 flex-col border-r border-gray-200 bg-white">
+<div class="flex h-16 shrink-0 items-center border-b border-gray-200 px-6">
+    <span class="material-symbols-outlined text-4xl text-primary-600">grass</span>
+<h1 class="text-xl font-bold text-black">AgriGuru</h1>
+</div>
+<nav class="flex-1 space-y-2 overflow-y-auto p-4">
+<a class="flex items-center gap-3 rounded-lg bg-green-100 px-3 py-2 text-green-800" href="{{ url_for('homepage') }}">
+<span class="material-symbols-outlined">home</span>
+<span class="text-sm font-medium">Home</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-600 hover:bg-gray-100" href="{{ url_for('home') }}">
+<span class="material-symbols-outlined">search</span>
+<span class="text-sm font-medium">Disease Detection</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-600 hover:bg-gray-100" href="{{ url_for('prices') }}">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="text-sm font-medium">Market Price</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-600 hover:bg-gray-100" href="{{ url_for('weather') }}">
+<span class="material-symbols-outlined">wb_sunny</span>
+<span class="text-sm font-medium">Weather</span>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-600 hover:bg-gray-100" href="{{ url_for('croprecommendation') }}">
+<span class="material-symbols-outlined">eco</span>
+<span class="text-sm font-medium">Crop Recommendation</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-gray-200 p-4">
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-600 hover:bg-gray-100" href="{{ url_for('profile') }}">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-sm font-medium">Profile</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 bg-gray-50 p-8">
+<div class="mx-auto max-w-4xl">
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-gray-800">Profile</h1>
+<p class="mt-1 text-gray-500">Manage your account settings and preferences</p>
+</div>
+<div class="rounded-lg border border-gray-200 bg-white shadow-sm">
+<div class="flex items-center gap-6 p-6">
+<div class="h-24 w-24 shrink-0 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDva2HSBUhw0Y78sjS_yJvEcFow5_6V2PazU5K6nRksOxN3ume-dI-e_xfkfwhhPE61fMS7cdwzzSixC-udG3Rh4Nc76kjRzt1JtQYlQcPT5DO2X4aXyQKY_w6cXDIoXai_lQjEL7O1bgAm78I7RuSRPQ6nCO6ueBRcoRZzm732ms94oZ4ckHJmrkdQwUHOXtTy2YeuSmg5DAtl78DlLaB0rTuZugfuRAqrfimr7xsYlLqatpOmGAmYVDQjE7rLv2yvLOfyGkt5dSw");'></div>
+<div>
+<h2 class="text-2xl font-bold text-gray-800">Nikhil</h2>
+<p class="text-gray-500">abc@email.com</p>
+<p class="text-sm text-gray-400">Joined 2025</p>
+</div>
+</div>
+</div>
+<div class="mt-8 rounded-lg border border-gray-200 bg-white shadow-sm">
+<div class="border-b border-gray-200 p-6">
+<h3 class="text-xl font-semibold text-gray-800">Personal Information</h3>
+</div>
+<form class="space-y-6 p-6">
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+<div>
+<label class="block text-sm font-medium text-gray-700" for="full-name">Full Name</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm" id="full-name" type="text" value="nikhil"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700" for="email">Email</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm" id="email" type="email" value="nikhil@email.com"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700" for="phone">Phone Number</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm" id="phone" type="tel"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700" for="address">Address</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm" id="address" type="text"/>
+</div>
+</div>
+</form>
+</div>
+<div class="mt-8 rounded-lg border border-gray-200 bg-white shadow-sm">
+<div class="border-b border-gray-200 p-6">
+<h3 class="text-xl font-semibold text-gray-800">Preferences</h3>
+</div>
+<form class="space-y-6 p-6">
+<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+<div>
+<label class="block text-sm font-medium text-gray-700" for="language">Preferred Language</label>
+<select class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm" id="language">
+<option selected="">English</option>
+<option>Hindi</option>
+<option>Spanish</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700" for="location">Default Location</label>
+<select class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm" id="location">
+<option selected="">Mumbai, India</option>
+<option>Delhi, India</option>
+<option>Bengaluru, India</option>
+</select>
+</div>
+</div>
+</form>
+</div>
+<div class="mt-8 rounded-lg border border-gray-200 bg-white shadow-sm">
+<div class="border-b border-gray-200 p-6">
+<h3 class="text-xl font-semibold text-gray-800">Saved Data</h3>
+</div>
+<div class="divide-y divide-gray-200">
+<a class="flex items-center gap-4 p-6 hover:bg-gray-50" href="#">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-100 text-green-600">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<div>
+<p class="font-medium text-gray-800">Crop Recommendations</p>
+<p class="text-sm text-gray-500">View your past crop recommendations</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-gray-400">chevron_right</span>
+</a>
+<a class="flex items-center gap-4 p-6 hover:bg-gray-50" href="#">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-100 text-green-600">
+<span class="material-symbols-outlined">search</span>
+</div>
+<div>
+<p class="font-medium text-gray-800">Disease Detection History</p>
+<p class="text-sm text-gray-500">View your past disease detection history</p>
+</div>
+<span class="material-symbols-outlined ml-auto text-gray-400">chevron_right</span>
+</a>
+</div>
+</div>
+<div class="mt-8 flex justify-end">
+<button class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2" type="button">
+                Cancel
+              </button>
+<button class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2" type="submit">
+                Save Changes
+              </button>
+</div>
+</div>
+<div class="h-10"></div>
+</main>
+</div>
+</div>
+
+</body></html>
